@@ -9,29 +9,41 @@ public class FlyOnBurgerAnimation : MonoBehaviour
 
     float time = 0;
     public GameObject plate;
+    public float ProductHeight;
 
     protected int weaponIndex;
     public bool animate = false;
-    float BurgerHeight = 0;
     Vector3 start;
     public Motion motForOverride;
     Animator anim;
+    PlateScript plateS;
+    AnimatorOverrideController overrideController;
     // Start is called before the first frame update
 
     void Start()
     {
         start = transform.position;
+        plateS = plate.GetComponent<PlateScript>();
         anim = GetComponent<Animator>();
+        overrideController = new AnimatorOverrideController();
+        overrideController.runtimeAnimatorController = anim.runtimeAnimatorController;
         UpdateAnimation();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("Fly", animate);
-
-
+        if (animate)
+        {
+            UpdateAnimation();
+            anim.SetBool("Fly", true);
+            animate= false;
+        }
+        
     }
+
+    
 
     void UpdateAnimation()
     {
@@ -42,25 +54,51 @@ public class FlyOnBurgerAnimation : MonoBehaviour
 
         AnimationCurve transY = new AnimationCurve();
         transY.AddKey(0.0f, start.y);
-        transY.AddKey(1.0f, Math.Max(start.y, plate.transform.position.y + BurgerHeight + 0.016f) + 1);
-        transY.AddKey(2.0f, plate.transform.position.y + 0.016f + BurgerHeight);
+        transY.AddKey(1.0f, Math.Max(start.y, plate.transform.position.y + plateS.Height + 0.016f) + 1);
+        transY.AddKey(2.0f, plate.transform.position.y + 0.016f + plateS.Height);
 
         AnimationCurve transZ = new AnimationCurve();
         transZ.AddKey(0.0f, start.z);
         transZ.AddKey(1.0f, (start.z + plate.transform.position.z) / 2);
         transZ.AddKey(2.0f, plate.transform.position.z);
 
+        AnimationEvent CloneEvent = new AnimationEvent();
+        CloneEvent.time = 2.0f;
+        CloneEvent.functionName = "cloneObject";
+
+        AnimationEvent BoolEvent = new AnimationEvent();
+        BoolEvent.time = 0.0f;
+        BoolEvent.functionName = "SemPlate";
+
         AnimationClip clip = new AnimationClip();
         clip.SetCurve("", typeof(Transform), "localPosition.x", transX);
         clip.SetCurve("", typeof(Transform), "localPosition.y", transY);
         clip.SetCurve("", typeof(Transform), "localPosition.z", transZ);
+        clip.AddEvent(CloneEvent);
+        clip.AddEvent(BoolEvent);
 
-         
-        AnimatorOverrideController overrideController = new AnimatorOverrideController();
-        overrideController.runtimeAnimatorController = anim.runtimeAnimatorController;
+
+        
         overrideController[motForOverride.name] = clip;
         anim.runtimeAnimatorController = overrideController;
     }
 
-    
+    void cloneObject()
+    {
+        anim.SetBool("Fly", false);
+
+        GameObject clone = Instantiate(this.gameObject);
+        Destroy(clone.GetComponent<FlyOnBurgerAnimation>());
+
+        plateS.ProductAddNow = false;
+
+        
+    }
+
+    void SemPlate()
+    {
+        plateS.ProductAddNow = true;
+        plateS.Height += ProductHeight;
+        
+    }
 }
