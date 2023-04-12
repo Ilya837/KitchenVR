@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
+[RequireComponent(typeof(Animator)) ]
+
 public class FlyOnBurgerAnimation : MonoBehaviour
 {
 
@@ -100,5 +102,10 @@ public class FlyOnBurgerAnimation : MonoBehaviour
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
         
+    }
+
+   void StartAnimation()
+    {
+        animate = true;
     }
 }

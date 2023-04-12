@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class TomatFlyOnBurger : MonoBehaviour
 {
     float time = 0;
@@ -113,5 +115,8 @@ public class TomatFlyOnBurger : MonoBehaviour
 
     }
 
-
+    public void StartAnimation()
+    {
+        animate = true;
+    }
 }
