@@ -9,6 +9,7 @@ public class ImageProgressBar : MonoBehaviour
 {
 	public GameObject interactObject;
 	public UnityEvent onBarFilled;
+	
 	// Время в секундах необходимое для заполнения Progressbar'а
 	public float timeToFill = 1.0f;
 
@@ -16,9 +17,11 @@ public class ImageProgressBar : MonoBehaviour
 	// текущего объекта, который является ProgressBar'ом
 	private Image progressBarImage = null;
 	public Coroutine barFillCoroutine = null;
-
+	bool courStart = false;
 	void Start ()
 	{
+
+		
 		// Получаем ссылку на компонент Image текущего объекта при
 		// помощи метода GetComponent<>();
 		progressBarImage = GetComponent<Image>();
@@ -45,14 +48,17 @@ public class ImageProgressBar : MonoBehaviour
 	}
 
 	void StartFillingProgressBar()
-	{
+	{	
 		barFillCoroutine = StartCoroutine("Fill");
+		
 	}
 
 	void StopFillingProgressBar()
 	{
+		
 		StopCoroutine(barFillCoroutine);
 		progressBarImage.fillAmount = 0.0f;
+		
 	}
 
 	IEnumerator Fill()
