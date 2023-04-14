@@ -104,7 +104,7 @@ public class FlyOnBurgerAnimation : MonoBehaviour
         
     }
 
-   void StartAnimation()
+   public void StartAnimation()
     {
         animate = true;
     }

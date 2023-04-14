@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ImageProgressBar : MonoBehaviour
 {
+	public GameObject interactObject;
 	public UnityEvent onBarFilled;
 	// Время в секундах необходимое для заполнения Progressbar'а
 	public float timeToFill = 1.0f;
@@ -30,7 +31,7 @@ public class ImageProgressBar : MonoBehaviour
 		}
 
 		// Создаём контроллер для события наведения указателя на объект
-		EventTrigger eventTrigger = gameObject.transform.parent.gameObject.AddComponent<EventTrigger>();
+		EventTrigger eventTrigger = interactObject.AddComponent<EventTrigger>();
 
 		EventTrigger.Entry pointerEnter = new EventTrigger.Entry();
 		pointerEnter.eventID = EventTriggerType.PointerEnter;
