@@ -9,6 +9,8 @@ public class ImageProgressBar : MonoBehaviour
 {
 	public GameObject interactObject;
 	public UnityEvent onBarFilled;
+	public GameObject plate;
+	PlateScript plateS;
 	
 	// Время в секундах необходимое для заполнения Progressbar'а
 	public float timeToFill = 1.0f;
@@ -18,10 +20,12 @@ public class ImageProgressBar : MonoBehaviour
 	private Image progressBarImage = null;
 	public Coroutine barFillCoroutine = null;
 	bool courStart = false;
+	public bool isStartIng = false;
+	bool corStart = false;
 	void Start ()
 	{
 
-		
+		plateS = plate.GetComponent<PlateScript>();
 		// Получаем ссылку на компонент Image текущего объекта при
 		// помощи метода GetComponent<>();
 		progressBarImage = GetComponent<Image>();
@@ -48,35 +52,51 @@ public class ImageProgressBar : MonoBehaviour
 	}
 
 	void StartFillingProgressBar()
-	{	
-		barFillCoroutine = StartCoroutine("Fill");
+	{
+		if (plateS.Height > 0 || isStartIng)
+		{
+			corStart= true;
+			barFillCoroutine = StartCoroutine("Fill");
+		}
 		
 	}
 
 	void StopFillingProgressBar()
 	{
-		
-		StopCoroutine(barFillCoroutine);
-		progressBarImage.fillAmount = 0.0f;
+		if (corStart)
+		{
+			corStart= false;
+			StopCoroutine(barFillCoroutine);
+			progressBarImage.fillAmount = 0.0f;
+		}
 		
 	}
 
 	IEnumerator Fill()
 	{
-		float startTime = Time.time;
-		float overTime = startTime + timeToFill;
-
-		while(Time.time < overTime)
+		while (true)
 		{
-			progressBarImage.fillAmount = Mathf.Lerp(0, 1, (Time.time - startTime) / timeToFill);
-			yield return null;
-		}
+			float startTime = Time.time;
+			float overTime = startTime + timeToFill;
 
-		progressBarImage.fillAmount = 0.0f;
+			while (Time.time < overTime)
+			{
+				if (!plateS.ProductAddNow)
+					progressBarImage.fillAmount = Mathf.Lerp(0, 1, (Time.time - startTime) / timeToFill);
+				else
+				{
+					startTime = Time.time;
+					overTime = startTime + timeToFill;
+				}
+				yield return null;
+			}
 
-		if(onBarFilled != null)
-		{
-			onBarFilled.Invoke();
+			progressBarImage.fillAmount = 0.0f;
+
+			if (onBarFilled != null)
+			{
+				onBarFilled.Invoke();
+			}
 		}
 	}
 }
