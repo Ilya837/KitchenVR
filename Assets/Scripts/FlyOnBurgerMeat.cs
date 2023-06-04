@@ -19,6 +19,8 @@ public class FlyOnBurgerMeat : MonoBehaviour
     AnimatorOverrideController overrideController;
     public Material[] materials;
     int NextMaterial = 1;
+
+    public Timer1Script timer;
     // Start is called before the first frame update
 
     void Start()
@@ -39,7 +41,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
         if (animate)
         {
             UpdateAnimation();
-            anim.SetBool("animate", true);
+            anim.SetTrigger("Animate");
             animate = false;
         }
 
@@ -90,7 +92,6 @@ public class FlyOnBurgerMeat : MonoBehaviour
 
     void cloneObject()
     {
-        anim.SetBool("animate", false);
 
         GameObject clone = Instantiate(this.gameObject);
         Destroy(clone.GetComponent<FlyOnBurgerMeat>());
@@ -107,6 +108,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
         ChangeTexture();
+        timer.StopTimer();
     }
 
     public void StartAnimation()
@@ -116,25 +118,10 @@ public class FlyOnBurgerMeat : MonoBehaviour
 
     public void StartAnimate()
     {
-        anim.SetBool("animate", true);
+        anim.SetTrigger("Animate");
     }
 
-    public void StartAnimate2()
-    {
-        anim.SetBool("animate2", true);
-    }
-
-    public void StartAnimate3()
-    {
-        anim.SetBool("animate3", true);
-    }
-
-    public void StopAnimate()
-    {
-        anim.SetBool("animate", false);
-        anim.SetBool("animate2", false);
-        anim.SetBool("animate3", false);
-    }
+    
 
     public void ChangeTexture()
     {
@@ -142,5 +129,23 @@ public class FlyOnBurgerMeat : MonoBehaviour
         this.GetComponent<Renderer>().material = materials[ NextMaterial++ ];
 
         if (NextMaterial > 2) NextMaterial = 0;
+    }
+
+    public void StartTimer()
+    {
+        timer.StartTimer();
+    }
+
+    public void StopTimer()
+    {
+        timer.StopTimer();
+    }
+
+    public void End()
+    {
+        anim.SetTrigger("End");
+        NextMaterial= 0;
+        ChangeTexture();
+
     }
 }

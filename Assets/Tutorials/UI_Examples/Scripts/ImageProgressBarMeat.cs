@@ -106,4 +106,9 @@ public class ImageProgressBarMeat: MonoBehaviour
             
         
     }
+
+    public void End()
+    {
+        State = 0;
+    }
 }
