@@ -7,7 +7,7 @@ using UnityEngine;
 public class FlyOnBurgerMeat : MonoBehaviour
 {
     // Start is called before the first frame update
-    float time = 0;
+    
     public GameObject plate;
     public float ProductHeight;
     protected int weaponIndex;
@@ -18,7 +18,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
     PlateScript plateS;
     AnimatorOverrideController overrideController;
     public Material[] materials;
-    int NextMaterial = 1;
+    private int MaterialNumber;
 
     public Timer1Script timer;
     // Start is called before the first frame update
@@ -31,6 +31,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
         anim = GetComponent<Animator>();
         overrideController = new AnimatorOverrideController();
         overrideController.runtimeAnimatorController = anim.runtimeAnimatorController;
+        MaterialNumber = 0;
         UpdateAnimation();
 
     }
@@ -107,7 +108,6 @@ public class FlyOnBurgerMeat : MonoBehaviour
     {
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
-        ChangeTexture();
         timer.StopTimer();
     }
 
@@ -123,12 +123,34 @@ public class FlyOnBurgerMeat : MonoBehaviour
 
     
 
-    public void ChangeTexture()
+    public void ChangeTexture(int StageNum)
     {
-        
-        this.GetComponent<Renderer>().material = materials[ NextMaterial++ ];
 
-        if (NextMaterial > 2) NextMaterial = 0;
+        switch (StageNum)
+        {
+                case 1:
+                {
+                    MaterialNumber++;
+                    break;
+                }
+                case 2:
+                {
+                    if (MaterialNumber < 3)
+                    {
+                        MaterialNumber *= 2;
+                    }
+                        
+                    MaterialNumber+=1;
+                    break;
+                }
+                case 3:
+                {
+                    MaterialNumber = 0;
+                    break;
+                }
+        }
+
+        this.GetComponent<Renderer>().material = materials[MaterialNumber];
     }
 
     public void StartTimer()
@@ -144,8 +166,8 @@ public class FlyOnBurgerMeat : MonoBehaviour
     public void End()
     {
         anim.SetTrigger("End");
-        NextMaterial= 0;
-        ChangeTexture();
+
+        ChangeTexture(3);
 
     }
 }

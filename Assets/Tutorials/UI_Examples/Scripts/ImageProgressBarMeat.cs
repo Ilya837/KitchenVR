@@ -13,7 +13,7 @@ public class ImageProgressBarMeat: MonoBehaviour
     public UnityEvent onBarFilled;
     public GameObject plate;
     public int[] thisState;
-    static int State;
+    public static int State;
     PlateScript plateS;
     
     // Время в секундах необходимое для заполнения Progressbar'а
@@ -22,6 +22,7 @@ public class ImageProgressBarMeat: MonoBehaviour
     // Переменная, куда будет сохранена ссылка на компонент Image
     // текущего объекта, который является ProgressBar'ом
     private Image progressBarImage = null;
+    public Image timer;
     public Coroutine barFillCoroutine = null;
     bool courStart = false;
     public bool isStartIng = false;
@@ -57,10 +58,11 @@ public class ImageProgressBarMeat: MonoBehaviour
 
     void StartFillingProgressBar()
     {
-        if ((plateS.Height > 0 || isStartIng|| State == 1) && thisState.Any(num => num == State))
+        
+        if ( (isStartIng ||  (       (plateS.Height > 0 || State == 1) && (timer.fillAmount > 0.33)   ) ) && thisState.Any(num => num == State) )
         {
             corStart = true;
-            barFillCoroutine = StartCoroutine("Fill");
+            barFillCoroutine = StartCoroutine(nameof(Fill));
         }
 
     }
