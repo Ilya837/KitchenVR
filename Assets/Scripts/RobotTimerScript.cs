@@ -13,6 +13,7 @@ public class RobotTimerScript : MonoBehaviour
     float time1;
     public Material[] materials= null;
     public PlateScript plate;
+    public int MaterialNow = 0;
 
 
 
@@ -75,6 +76,7 @@ public class RobotTimerScript : MonoBehaviour
 
     public void SetMaterial(int materialIndex)
     {
+        MaterialNow = materialIndex;
         this.GetComponent<Renderer>().material = materials[materialIndex];
     }
 

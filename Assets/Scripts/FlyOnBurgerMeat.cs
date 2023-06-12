@@ -18,7 +18,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
     PlateScript plateS;
     AnimatorOverrideController overrideController;
     public Material[] materials;
-    private int MaterialNumber;
+    public int MaterialNumber;
     public int id;
 
     public Timer1Script timer;

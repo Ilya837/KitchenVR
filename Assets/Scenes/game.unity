@@ -1494,6 +1494,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72460e0aed27fae4b9c8037a45e86708, type: 3}
+--- !u!1 &253547177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -555777200358362273, guid: cd765d77554517e4db004f75089b423a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1309298143}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &261867402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2963279363334551424, guid: fc70015c19ba43f4986c456d8e5ff9b6,
@@ -1760,7 +1766,7 @@ MonoBehaviour:
   motForOverride: {fileID: 7400000, guid: f833287b1a2061d49aa0be7c6942de64, type: 2}
   sousModel: {fileID: 2684175954385762210}
   sousMaterial: {fileID: 2100000, guid: 604052468dc78e7419344e0ba2f336f0, type: 2}
-  id: 8
+  id: 7
 --- !u!95 &538739273
 Animator:
   serializedVersion: 3
@@ -2246,6 +2252,19 @@ MonoBehaviour:
   ProductAddNow: 0
   burger: []
   Ids: 
+  menus:
+  - {fileID: 2100000, guid: dbbe2a991cfba824aaeb1b74fb6587e6, type: 2}
+  - {fileID: 2100000, guid: ac50c8df8c8db8c4eada00d303c52f13, type: 2}
+  - {fileID: 2100000, guid: 444229cf35dc8be4cae7b0bdce1b32ab, type: 2}
+  - {fileID: 2100000, guid: 1c0984838210f9e47a5bf66cfae8d2dd, type: 2}
+  - {fileID: 2100000, guid: a634e74bf9197d24b963b587528895bd, type: 2}
+  - {fileID: 2100000, guid: fd3df4d6cc6997746b162564f296909c, type: 2}
+  - {fileID: 2100000, guid: b4bfc27ec71d8ab42b8f14dc81b2de1f, type: 2}
+  - {fileID: 2100000, guid: 44215b63d473f70459530aa2b6d95e79, type: 2}
+  MenuNow: 0
+  menu: {fileID: 253547177}
+  score: 0
+  robot: {fileID: 1414591520}
 --- !u!1 &664143550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 493667233335654551, guid: 72460e0aed27fae4b9c8037a45e86708,
@@ -2320,6 +2339,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c4636afacc1b8d345b6eaddf6cb39a4b, type: 2}
   - {fileID: 2100000, guid: ed243864de003744a91eb5ef8623f80c, type: 2}
   - {fileID: 2100000, guid: 05cb87261bd702342a063e054cec7725, type: 2}
+  MaterialNumber: 0
   id: 5
   timer: {fileID: 2014779226}
 --- !u!1 &705507993
@@ -3767,7 +3787,7 @@ MonoBehaviour:
   motForOverride: {fileID: 7400000, guid: f833287b1a2061d49aa0be7c6942de64, type: 2}
   sousModel: {fileID: 2684175954385762210}
   sousMaterial: {fileID: 2100000, guid: b0b51475720798e4dac72883766d8d6a, type: 2}
-  id: 7
+  id: 6
 --- !u!95 &1304069521
 Animator:
   serializedVersion: 3
@@ -3916,7 +3936,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd3df4d6cc6997746b162564f296909c, type: 2}
+      objectReference: {fileID: 2100000, guid: dbbe2a991cfba824aaeb1b74fb6587e6, type: 2}
     - target: {fileID: -8679921383154817045, guid: cd765d77554517e4db004f75089b423a,
         type: 3}
       propertyPath: m_RootOrder
@@ -4457,7 +4477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f246cb6698a6012488a08faa20304c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToFill: 50
+  timeToFill: 140
   onBarFilled:
     m_PersistentCalls:
       m_Calls:
@@ -4477,6 +4497,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d6b7744d3efc53a4fa54077a7bdbf8fa, type: 2}
   - {fileID: 2100000, guid: f00a10863d8d43d4084e607fe8516bb0, type: 2}
   plate: {fileID: 637377872}
+  MaterialNow: 0
 --- !u!1 &1486454047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5231606417026138927, guid: f7be6a04859fb52468c8741545c7bf76,
