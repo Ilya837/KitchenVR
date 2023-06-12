@@ -17,6 +17,7 @@ public class Gorchica : MonoBehaviour
     PlateScript plateS;
     public GameObject sousModel;
     public Material sousMaterial;
+    public int id;
     // Start is called before the first frame update
 
     void Start()
@@ -49,6 +50,9 @@ public class Gorchica : MonoBehaviour
         t.position = new Vector3(plate.transform.position.x, plate.transform.position.y + plateS.Height, plate.transform.position.z);
 
         clone.GetComponent<MeshRenderer>().material = sousMaterial;
+
+        plateS.burger.Add(clone);
+        plateS.Ids.Add(id);
     }
 
     void SemPlate1()

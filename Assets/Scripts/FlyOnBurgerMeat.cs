@@ -19,6 +19,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
     AnimatorOverrideController overrideController;
     public Material[] materials;
     private int MaterialNumber;
+    public int id;
 
     public Timer1Script timer;
     // Start is called before the first frame update
@@ -99,7 +100,10 @@ public class FlyOnBurgerMeat : MonoBehaviour
         Destroy(clone.GetComponent<Animator>());
 
         plateS.ProductAddNow = false;
-        
+
+        plateS.burger.Add(clone);
+        plateS.Ids.Add(id);
+
 
 
     }

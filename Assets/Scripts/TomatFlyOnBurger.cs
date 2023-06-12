@@ -18,6 +18,7 @@ public class TomatFlyOnBurger : MonoBehaviour
     Animator anim;
     PlateScript plateS;
     AnimatorOverrideController overrideController;
+    public int id;
     // Start is called before the first frame update
 
     void Start()
@@ -104,6 +105,8 @@ public class TomatFlyOnBurger : MonoBehaviour
         Destroy(clone.GetComponent<TomatFlyOnBurger>());
 
         plateS.ProductAddNow = false;
+        plateS.burger.Add(clone);
+        plateS.Ids.Add(id);
 
 
     }

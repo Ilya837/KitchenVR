@@ -46,4 +46,9 @@ public class RobotAnimation : MonoBehaviour
         Debug.Log("Я тут был");
         transform.Translate(-5.92f, -0.7f, 8.14f);
     }
+
+    public void Startanim()
+    {
+        animate = true;
+    }
 }

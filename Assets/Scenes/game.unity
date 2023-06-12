@@ -223,6 +223,9 @@ MonoBehaviour:
   ProductHeight: 0.02
   animate: 0
   motForOverride: {fileID: 7400000, guid: 2dc78e203eb4ab64b87b497766b7fd42, type: 2}
+  id: 3
+  isEndEngredient: 0
+  robot: {fileID: 0}
 --- !u!95 &27770781
 Animator:
   serializedVersion: 3
@@ -1532,6 +1535,9 @@ MonoBehaviour:
   ProductHeight: 0.12
   animate: 0
   motForOverride: {fileID: 7400000, guid: 2dc78e203eb4ab64b87b497766b7fd42, type: 2}
+  id: 0
+  isEndEngredient: 0
+  robot: {fileID: 0}
 --- !u!1 &415594470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5231606415566637616, guid: f7be6a04859fb52468c8741545c7bf76,
@@ -1720,7 +1726,6 @@ MonoBehaviour:
   objectON:
   - {fileID: 1612774980}
   - {fileID: 1388768760}
-  - {fileID: 1414591514}
   - {fileID: 44890250}
   - {fileID: 748556986}
   - {fileID: 977086178}
@@ -1728,6 +1733,7 @@ MonoBehaviour:
   - {fileID: 1285819409}
   - {fileID: 1518160335}
   - {fileID: 1973242909}
+  - {fileID: 1414591514}
   startCheck: {fileID: 1641631726}
   endCheck: {fileID: 415594470}
 --- !u!1 &538739268 stripped
@@ -1754,6 +1760,7 @@ MonoBehaviour:
   motForOverride: {fileID: 7400000, guid: f833287b1a2061d49aa0be7c6942de64, type: 2}
   sousModel: {fileID: 2684175954385762210}
   sousMaterial: {fileID: 2100000, guid: 604052468dc78e7419344e0ba2f336f0, type: 2}
+  id: 8
 --- !u!95 &538739273
 Animator:
   serializedVersion: 3
@@ -2237,6 +2244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Height: 0
   ProductAddNow: 0
+  burger: []
+  Ids: 
 --- !u!1 &664143550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 493667233335654551, guid: 72460e0aed27fae4b9c8037a45e86708,
@@ -2259,6 +2268,9 @@ MonoBehaviour:
   ProductHeight: 0.2
   animate: 0
   motForOverride: {fileID: 7400000, guid: 2dc78e203eb4ab64b87b497766b7fd42, type: 2}
+  id: 1
+  isEndEngredient: 1
+  robot: {fileID: 1414591519}
 --- !u!1 &696976757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3475cd1b2026cff418c541c5b92c99b4,
@@ -2308,6 +2320,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c4636afacc1b8d345b6eaddf6cb39a4b, type: 2}
   - {fileID: 2100000, guid: ed243864de003744a91eb5ef8623f80c, type: 2}
   - {fileID: 2100000, guid: 05cb87261bd702342a063e054cec7725, type: 2}
+  id: 5
   timer: {fileID: 2014779226}
 --- !u!1 &705507993
 GameObject:
@@ -3531,6 +3544,9 @@ MonoBehaviour:
   ProductHeight: 0.02
   animate: 0
   motForOverride: {fileID: 7400000, guid: 2dc78e203eb4ab64b87b497766b7fd42, type: 2}
+  id: 4
+  isEndEngredient: 0
+  robot: {fileID: 0}
 --- !u!95 &1198970322
 Animator:
   serializedVersion: 3
@@ -3751,6 +3767,7 @@ MonoBehaviour:
   motForOverride: {fileID: 7400000, guid: f833287b1a2061d49aa0be7c6942de64, type: 2}
   sousModel: {fileID: 2684175954385762210}
   sousMaterial: {fileID: 2100000, guid: b0b51475720798e4dac72883766d8d6a, type: 2}
+  id: 7
 --- !u!95 &1304069521
 Animator:
   serializedVersion: 3
@@ -4428,6 +4445,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: 0
+--- !u!114 &1414591520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414591514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f246cb6698a6012488a08faa20304c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToFill: 50
+  onBarFilled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1414591519}
+        m_MethodName: Startanim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  materials:
+  - {fileID: 2100000, guid: d766af3ef18ca5b48936c39322a256c1, type: 2}
+  - {fileID: 2100000, guid: d6b7744d3efc53a4fa54077a7bdbf8fa, type: 2}
+  - {fileID: 2100000, guid: f00a10863d8d43d4084e607fe8516bb0, type: 2}
+  plate: {fileID: 637377872}
 --- !u!1 &1486454047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5231606417026138927, guid: f7be6a04859fb52468c8741545c7bf76,
@@ -5652,6 +5701,7 @@ MonoBehaviour:
   ProductHeight: 0.05
   animate: 0
   motForOverride: {fileID: 7400000, guid: 2dc78e203eb4ab64b87b497766b7fd42, type: 2}
+  id: 2
 --- !u!4 &1876452673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482300, guid: 60270cf52a5e94998a5a335989159738,
@@ -5946,20 +5996,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec48fbfff8baa754d95152cfeb4f7f29, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5eb3437c59bec0e41970edee938c14d8, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &2014779228
@@ -5977,13 +6027,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014779224}
-  m_LocalRotation: {x: 0.98023474, y: -0.019248309, z: -0.05070631, w: 0.19025846}
+  m_LocalRotation: {x: -0.0030322084, y: -0.9730694, z: 0.22980975, w: 0.017728942}
   m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 0.01150087, y: 0.010541459, z: 0.012957683}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 51
-  m_LocalEulerAnglesHint: {x: 158.22, y: 6.6, z: 3.520996}
+  m_LocalEulerAnglesHint: {x: 386.56, y: 182.3, z: 0.9}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.11, y: -1.91}

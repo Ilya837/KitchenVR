@@ -20,6 +20,9 @@ public class FlyOnBurgerAnimation : MonoBehaviour
     Animator anim;
     PlateScript plateS;
     AnimatorOverrideController overrideController;
+    public int id;
+    public bool isEndEngredient = false;
+    public RobotAnimation robot;
     // Start is called before the first frame update
 
     void Start()
@@ -92,8 +95,18 @@ public class FlyOnBurgerAnimation : MonoBehaviour
         GameObject clone = Instantiate(this.gameObject);
         Destroy(clone.GetComponent<FlyOnBurgerAnimation>());
 
-        plateS.ProductAddNow = false;
+        
+        
 
+        plateS.ProductAddNow = false;
+        plateS.burger.Add(clone);
+        plateS.Ids.Add(id);
+
+        if (isEndEngredient)
+        {
+            robot.Startanim();
+
+        }
         
     }
 
@@ -101,6 +114,7 @@ public class FlyOnBurgerAnimation : MonoBehaviour
     {
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
+        
         
     }
 
