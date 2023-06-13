@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlateScript : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlateScript : MonoBehaviour
     public GameObject menu;
     public int score = 0;
     public RobotTimerScript robot;
+    public int meatMaterial;
+    public Text scoreText;
 
 
     public void BurgerEnd()
@@ -33,6 +36,7 @@ public class PlateScript : MonoBehaviour
         Ids.Clear();
 
         Height= 0;
+        meatMaterial= 0;
 
 
     }
@@ -68,7 +72,7 @@ public class PlateScript : MonoBehaviour
 
                     if (Ids.SequenceEqual( RightIds1) || Ids.SequenceEqual(RightIds2) ){
 
-                        int meatMaterial = burger[2].GetComponent<FlyOnBurgerMeat>().MaterialNumber;
+                        
 
                         if (meatMaterial == 4 || meatMaterial == 5)
                             score -= 5;
@@ -77,7 +81,7 @@ public class PlateScript : MonoBehaviour
 
                         score += 5 * (Ids.Count() - 2);
 
-                        switch (robot.MaterialNow)
+                        switch (meatMaterial)
                         {
                             case 0: 
                                 {
@@ -107,10 +111,426 @@ public class PlateScript : MonoBehaviour
 
                     break;
                 }
+        
+            case 1:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(4);
+                    RightIds1.Add(5);
+                    RightIds1.Add(3);
+                    RightIds1.Add(7);
+                    RightIds1.Add(1);
+
+                    if (Ids.SequenceEqual(RightIds1))
+                    {
+
+
+
+                        if (meatMaterial == 4 || meatMaterial == 5)
+                            score -= 5;
+                        if (meatMaterial == 6)
+                            score -= 15;
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
+
+            case 2:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(4);
+                    RightIds1.Add(5);
+                    RightIds1.Add(2);
+                    RightIds1.Add(7);
+                    RightIds1.Add(6);
+                    RightIds1.Add(1);
+
+                    List<int> RightIds2 = new List<int>();
+                    RightIds2.Add(0);
+                    RightIds2.Add(4);
+                    RightIds2.Add(5);
+                    RightIds2.Add(2);
+                    RightIds2.Add(6);
+                    RightIds2.Add(7);
+                    
+                    RightIds2.Add(1);
+
+
+
+
+                    if (Ids.SequenceEqual(RightIds1) || Ids.SequenceEqual(RightIds2))
+                    {
+                    
+
+
+
+                        if (meatMaterial == 4 || meatMaterial == 5)
+                            score -= 5;
+                        if (meatMaterial == 6)
+                            score -= 15;
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
+
+            case 3:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(4);
+                    RightIds1.Add(5);
+                    RightIds1.Add(6);
+                    RightIds1.Add(1);
+
+                    if (Ids.SequenceEqual(RightIds1))
+                    {
+
+
+
+                        if (meatMaterial == 4 || meatMaterial == 5)
+                            score -= 5;
+                        if (meatMaterial == 6)
+                            score -= 15;
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
+
+            case 4:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(5);
+                    RightIds1.Add(2);
+                    RightIds1.Add(3);
+                    RightIds1.Add(6);
+                    RightIds1.Add(1);
+
+                    if (Ids.SequenceEqual(RightIds1))
+                    {
+
+
+
+                        if (meatMaterial == 4 || meatMaterial == 5)
+                            score -= 5;
+                        if (meatMaterial == 6)
+                            score -= 15;
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
+            case 5:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(3);
+                    RightIds1.Add(3);
+                    RightIds1.Add(3);
+                    RightIds1.Add(3);
+                    RightIds1.Add(1);
+
+                    if (Ids.SequenceEqual(RightIds1))
+                    {
+
+
+
+                        
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
+
+            case 6:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(4);
+                    RightIds1.Add(5);
+                    RightIds1.Add(3);
+                    RightIds1.Add(5);
+                    RightIds1.Add(6);
+                    RightIds1.Add(7);
+                    RightIds1.Add(1);
+
+                    List<int> RightIds2 = new List<int>();
+                    RightIds2.Add(0);
+                    RightIds2.Add(4);
+                    RightIds2.Add(5);
+                    RightIds2.Add(3);
+                    RightIds2.Add(5);
+                    RightIds2.Add(7);
+                    RightIds2.Add(6);
+
+                    RightIds2.Add(1);
+
+
+
+
+                    if (Ids.SequenceEqual(RightIds1) || Ids.SequenceEqual(RightIds2))
+                    {
+
+
+
+
+                        if (meatMaterial == 4 || meatMaterial == 5)
+                            score -= 5;
+                        if (meatMaterial == 6)
+                            score -= 15;
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
+
+            case 7:
+                {
+
+                    List<int> RightIds1 = new List<int>();
+                    RightIds1.Add(0);
+                    RightIds1.Add(4);
+                    RightIds1.Add(5);
+                    RightIds1.Add(2);
+                    RightIds1.Add(7);
+                    RightIds1.Add(1);
+
+                    if (Ids.SequenceEqual(RightIds1))
+                    {
+
+
+
+                        if (meatMaterial == 4 || meatMaterial == 5)
+                            score -= 5;
+                        if (meatMaterial == 6)
+                            score -= 15;
+
+                        score += 5 * (Ids.Count() - 2);
+
+                        switch (meatMaterial)
+                        {
+                            case 0:
+                                {
+                                    score += 100;
+                                    break;
+                                }
+                            case 1:
+                                {
+                                    score += 50;
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    score -= 25;
+                                    break;
+                                }
+
+                        }
+
+                        Debug.Log("BurgerOk");
+                    }
+                    else
+                    {
+                        score -= 25;
+                    }
+
+
+
+                    break;
+                }
         }
+
+        scoreText.text = "Score:\n" + score;
+
 
 
         MenuNow++;
+        if(MenuNow == 8) MenuNow= 0;
         menu.GetComponent<Renderer>().material = menus[MenuNow];
         
 

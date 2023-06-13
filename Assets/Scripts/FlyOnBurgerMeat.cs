@@ -154,6 +154,8 @@ public class FlyOnBurgerMeat : MonoBehaviour
                 }
         }
 
+
+        plateS.meatMaterial = MaterialNumber;
         this.GetComponent<Renderer>().material = materials[MaterialNumber];
     }
 
