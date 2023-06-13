@@ -34,6 +34,7 @@ public class RobotTimerScript : MonoBehaviour
         time1 = 0;
 
         plate.BurgerEnd();
+        barFillCoroutine = null;
 
     }
 

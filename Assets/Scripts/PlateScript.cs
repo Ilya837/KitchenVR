@@ -45,6 +45,19 @@ public class PlateScript : MonoBehaviour
 
     }
 
+    public void  OnGameOver()
+    {
+        burger.ForEach(b => Destroy(b));
+        burger.Clear();
+
+
+
+        Ids.Clear();
+
+        Height = 0;
+        meatMaterial = 0;
+    }
+
     void CheckBurger()
     {
         switch (MenuNow)
