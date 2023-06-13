@@ -16,6 +16,8 @@ public class RobotAnimation : MonoBehaviour
     //PlateScript plateS;
     //AnimatorController overrideController;
 
+    public AudioClip[] clips;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +49,10 @@ public class RobotAnimation : MonoBehaviour
         transform.Translate(-5.92f, -0.7f, 8.14f);
     }
 
-    public void Startanim()
+    public void Startanim(int musicNum)
     {
+        this.GetComponent<AudioSource>().clip = clips[musicNum - 1];
+        this.GetComponent<AudioSource>().Play();
         animate = true;
     }
 }

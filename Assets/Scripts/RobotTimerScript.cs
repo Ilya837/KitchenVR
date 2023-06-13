@@ -67,6 +67,7 @@ public class RobotTimerScript : MonoBehaviour
         if (onBarFilled != null)
         {
             onBarFilled.Invoke();
+            
 
         }
 

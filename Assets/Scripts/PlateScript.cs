@@ -21,6 +21,10 @@ public class PlateScript : MonoBehaviour
     public int meatMaterial;
     public Text scoreText;
 
+    
+
+    
+
 
     public void BurgerEnd()
     {

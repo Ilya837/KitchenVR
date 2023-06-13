@@ -104,7 +104,7 @@ public class FlyOnBurgerAnimation : MonoBehaviour
 
         if (isEndEngredient)
         {
-            robot.Startanim();
+            robot.Startanim(1);
 
         }
         
@@ -114,7 +114,8 @@ public class FlyOnBurgerAnimation : MonoBehaviour
     {
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
-        
+        this.GetComponent<AudioSource>().mute= false;
+        this.GetComponent<AudioSource>().Play();
         
     }
 

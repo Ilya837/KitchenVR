@@ -113,6 +113,7 @@ public class FlyOnBurgerMeat : MonoBehaviour
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
         timer.StopTimer();
+        StoptSound();
     }
 
     public void StartAnimation()
@@ -175,5 +176,15 @@ public class FlyOnBurgerMeat : MonoBehaviour
 
         ChangeTexture(3);
 
+    }
+
+    public void StartSound()
+    {
+        this.GetComponent<AudioSource>().mute= false;
+    }
+
+    public void StoptSound()
+    {
+        this.GetComponent<AudioSource>().mute = true;
     }
 }

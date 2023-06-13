@@ -53,6 +53,9 @@ public class Gorchica : MonoBehaviour
 
         plateS.burger.Add(clone);
         plateS.Ids.Add(id);
+
+        this.GetComponent<AudioSource>().mute = false;
+        this.GetComponent<AudioSource>().Play();
     }
 
     void SemPlate1()

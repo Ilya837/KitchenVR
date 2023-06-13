@@ -115,6 +115,8 @@ public class TomatFlyOnBurger : MonoBehaviour
     {
         plateS.ProductAddNow = true;
         plateS.Height += ProductHeight;
+        this.GetComponent<AudioSource>().mute = false;
+        this.GetComponent<AudioSource>().Play();
 
     }
 
